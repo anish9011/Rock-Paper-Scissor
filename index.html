@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header class="header-section">
+        <div class="score-display">
+          <h1>
+            ROCK <br/>
+            PAPER <br/>
+            SCISSORS
+          </h1>
+          <div class="score-board">
+            <div class="score-item">
+              Computer <br/>
+              Score
+              <div class="computer-score">0</div>
+            </div>
+            <div class="score-item">
+              Your <br/>
+              Score
+              <div class="player-score">0</div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="game-main">
+        <!-- Game Play Area -->
+        <div class="game-play-area">
+          <div class="play-top">
+            <div class="rock-circle">
+              <div class="choice-item" id="rock">
+                <img src="./assets/rock.png"/>
+              </div>
+            </div>
+            <div class="line-separator-1" id="line"></div>
+            <div class="scissor-circle">
+              <div class="choice-item" id="scissor">
+                <img src="./assets/scissor.png" />
+              </div>
+            </div>
+          </div>
+          <div class="line-separator-2" id="line"></div>
+          <div class="line-separator-top" id="line"></div>
+          <div class="paper-circle">
+            <div class="play-bottom choice-item" id="paper">
+              <img src="./assets/paper.png" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Result Area -->
+        <div class="result-display">
+          <div class="result-side">
+            <div class="side-label">YOU PICKED</div>
+            <div class="player-choice-icons">
+              <div class="choice-icon-player" id="player-rock">
+                <img src="./assets/rock.png"  />
+              </div>
+              <div class="choice-icon-player" id="player-scissor">
+                <img src="./assets/scissor.png"  id="imgscissorplayer"/>
+              </div>
+              <div class="choice-icon-player" id="player-paper">
+                <img src="./assets/paper.png"  />
+              </div>
+            </div>
+          </div>
+          <div class="result-message">
+            <div class="result-text" id="victory-text">YOU WON</div>
+            <div class="result-text" id="defeat-text">YOU LOST</div>
+            <div class="result-text" id="draw-text">TIE UP</div>
+            <div class="sub-text">AGAINST PC</div>
+            <button class="play-again-button">PLAY AGAIN</button>
+            <button class="replay-button">REPLAY</button>
+          </div>
+          <div class="result-side">
+            <div class="side-label">PC PICKED</div>
+            <div class="pc-choice-icons">
+              <div class="choice-icon-pc" id="pc-rock">
+                <img src="./assets/rock.png"  />
+              </div>
+              <div class="choice-icon-pc" id="pc-scissor">
+                <img src="./assets/scissor.png"  id="imgscissorpc"/>
+              </div>
+              <div class="choice-icon-pc" id="pc-paper">
+                <img src="./assets/paper.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="victory-screen">
+      <div class="trophy-section">
+        <img src="./assets/Vector.png" alt="trophy image" />
+        <img src="./assets/Group 5.png" alt="stars" class="stars-img" />
+      </div>
+      <div class="victory-message">HURRAY!!</div>
+      <div class="win-message">YOU WON THE GAME</div>
+      <button class="victory-play-button">PLAY AGAIN</button>
+    </div>
+
+    <div class="close-button">
+      <img src="./assets/X.png" alt="cross" width="50%" height="50%" />
+    </div>
+    <div class="rules-section">
+      <h4>Game Rules</h4>
+      <div class="rules-list">
+        <div>
+          <div class="rule-pointer" style="width:1.9rem">&#x1F7E8;</div>
+          <div>
+            Rock beats scissors, scissors beat paper, and paper beats rock.
+          </div>
+        </div>
+        <div>
+          <div class="rule-pointer" style="width:3.1rem">&#x1F7E8;</div>
+          <div>
+            Agree ahead of time whether you’ll count off “rock, paper, scissors,
+            shoot” or just “rock, paper, scissors.”
+          </div>
+        </div>
+        <div>
+          <div class="rule-pointer" style="width:2.4rem">&#x1F7E8;</div>
+          <div>
+            Use rock, paper, scissors to settle minor decisions or simply play
+            to pass the time
+          </div>
+        </div>
+        <div>
+          <div class="rule-pointer" style="width:2.5em">&#x1F7E8;</div>
+          <div>
+            If both players lay down the same hand, each player lays down
+            another hand
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <footer class="footer-section">
+      <button class="rules-btn">RULES</button>
+      <button class="next-btn">NEXT</button>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

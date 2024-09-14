@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+:root {
+  --dark-green: #004429;
+  --gray: #656565;
+  --yellow: #FFD600;
+  --black: #252525;
+  --green: #8CC461;
+  --white: #FFF;
+  --inner-green: #1da82b;
+  --mid-green: #1da82b90;
+  --outer-green: #2E9A2563;
+}
+
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  background: var(--green);
+  color: var(--white);
+  position: relative;
+}
+
+.header-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 4%;
+}
+
+.score-display {
+  width: 60%;
+  border: 2px solid var(--white);
+  border-radius: 1.1rem;
+  display: flex;
+  padding: 11px 16px;
+  justify-content: space-between;
+}
+
+h1 {
+  letter-spacing: 4px;
+}
+
+.score-board {
+  display: flex;
+  gap: 25px;
+  width: 35%;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  padding: 5px;
+}
+
+.computer-score, .player-score {
+  justify-self: flex-end;
+  font-size: 55px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.game-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 60%;
+  margin-top: 5%;
+}
+
+.game-play-area {
+  height: 100%;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 21px;
+  position: relative;
+}
+
+.play-top {
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+  height: 42%;
+  z-index: 2;
+}
+
+.play-bottom {
+  position: relative;
+  height: 40%;
+}
+
+.choice-item, .side-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 150px;
+  border: none;
+  position: relative;
+  top: 11%;
+  left: 10%;
+}
+
+.choice-item {
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  background-color: white;
+  width: 110px;
+  height: 110px;
+}
+
+.rock-circle {
+  background-color: #0074B6;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  z-index: 2;
+  box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 25%;
+}
+
+.scissor-circle {
+  background-color: #BD00FF;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  z-index: 2;
+  box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 25%;
+}
+
+.paper-circle {
+  background-color: #FFA943;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  z-index: 2;
+  box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+#line {
+  position: absolute;
+  width: 30%;
+  border: 14px solid #000000A3;
+}
+
+.line-separator-1 {
+  top: 25%;
+  left: 37%;
+}
+
+.line-separator-2 {
+  top: 50%;
+  left: 26%;
+  transform: rotate(60deg);
+}
+
+.line-separator-top {
+  top: 50%;
+  left: 44%;
+  transform: rotate(120deg);
+}
+
+.result-display {
+  height: 90%;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 5px;
+  display: none;
+}
+
+.result-message {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.result-text {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.sub-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+#lost-text, #tie-text, .replay-button {
+  display: none;
+}
+
+.result-message > button {
+  border: 2px solid var(--white);
+  background-color: var(--white);
+  border-radius: 5px;
+  height: 2rem;
+  color: var(--gray);
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  width: 70%;
+  cursor: pointer;
+}
+
+.result-side {
+  position: relative;
+  height: 100%;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+
+}
+
+.side-label {
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 1;
+  margin-bottom: 2%;
+  position: absolute;
+  top:15%;
+  left:40%;
+}
+
+.player-choice-icons{
+  position: absolute;
+  top:25%;
+  left:33%;
+  height: 54%;
+  width: 40%;
+}
+
+.choice-icon-player{
+  height: 100%;
+  position: relative;
+  top:0%;
+  right: 2%;
+}
+
+.choice-icon-player img{
+  position: absolute;
+  top:23%;
+  left: 28%;
+}
+ #imgscissorplayer{
+  position: absolute;
+  left:40%;
+  top:27.5%;
+ }
+
+ #imgscissorpc{
+  position: absolute;
+  left:40%;
+  top:27.5%;
+ }
+
+#player-rock, #pc-rock {
+  background-image: url("./assets/Ellipse 2.png");
+  background-repeat: no-repeat;
+
+}
+
+#player-scissor, #pc-scissor {
+  background-image: url("./assets/Ellipse 3.png");
+  background-repeat: no-repeat;
+}
+
+#player-paper, #pc-paper {
+  background-image: url("./assets/Ellipse 1.png");
+  background-repeat: no-repeat;
+}
+
+.pc-choice-icons{
+  position:absolute;
+  top:25%;
+  left:33%;
+  height: 54%;
+  width: 40%;
+}
+
+.choice-icon-pc{
+  height: 100%;
+  position: relative;
+  top:0%;
+  right: 2%;
+}
+
+.choice-icon-pc img{
+  position: absolute;
+  top:23.8%;
+  left: 28%;
+}
+
+
+.green-background {
+  border: none;
+  box-shadow:
+    0 0 0 10px var(--inner-green) inset, 
+    0 0 0 10px var(--inner-green), 
+    0 0 0 25px var(--mid-green), 
+    0 0 0 40px var(--outer-green);
+  border-radius: 50%;
+  height: 40%;
+}
+
+.close-button {
+  background-color: red;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 50%;
+  right: 2%;
+  z-index: 1;
+  border: 5px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+.rules-section {
+  background-color: var(--dark-green);
+  color: var(--white);
+  height: 44%;
+  width: 21%;
+  border: 7px solid var(--white);
+  border-radius: 2rem;
+  padding: 15px 10px;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 10%;
+  right: 3%;
+  display: none;
+}
+
+.rules-section > h4 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  height: 15%;
+}
+
+.rules-list {
+  font-size: 0.85rem;
+  font-weight: 400;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.rules-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.rule-pointer {
+  width: 10%;
+}
+
+.victory-screen {
+  width: 100vw;
+  height: 100vh;
+  background: var(--green);
+  color: var(--white);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.trophy-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  padding-bottom: 2rem;
+  height: 50%;
+  position: relative;
+  width: 100%;
+}
+
+.stars-img {
+  position: absolute;
+}
+
+.victory-message {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.win-message {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 15px 0;
+}
+
+.victory-play-button {
+  border: 2px solid var(--white);
+  background-color: var(--white);
+  border-radius: 5px;
+  height: 3rem;
+  color: var(--gray);
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.footer-section {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  display: flex;
+  gap: 1rem; /* Space between buttons */
+}
+
+/* Rules Button Styling */
+.rules-btn {
+  border: 2px solid var(--white);
+  background: transparent;
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* Next Button Styling */
+.next-btn {
+  border: 2px solid var(--white);
+  background: transparent;
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: none; /* Hide the button by default */
+}
